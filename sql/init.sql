@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS users (
     gender VARCHAR(3) NOT NULL DEFAULT FALSE,
     hometown VARCHAR(100), 
 
-    is_tutor BOOLEAN NOT NULL DEFAULT FALSE, -- permission to add subject or manage students in a subject
+    -- 0: student, 1: tutor, 2: admin
+    permission INT(1) NOT NULL DEFAULT 0,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -25,6 +26,7 @@ CREATE TABLE IF NOT EXISTS subjects (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(24) NOT NULL,
     display_name VARCHAR(64),
+
     
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
