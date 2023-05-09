@@ -5,7 +5,7 @@ CREATE DATABASE SchoolDatabase;
 USE SchoolDatabase;
 
 -- sinh viên
-CREATE TABLE IF NOT EXISTS students (
+CREATE TABLE IF NOT EXISTS users (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(24) NOT NULL,
     password VARCHAR(100),
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS students (
     gender VARCHAR(3) NOT NULL DEFAULT FALSE,
     hometown VARCHAR(100), 
 
-    istutor BOOLEAN NOT NULL DEFAULT FALSE,
+    is_tutor BOOLEAN NOT NULL DEFAULT FALSE, -- permission to add subject or manage students in a subject
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
