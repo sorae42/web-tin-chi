@@ -36,6 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $db->query("INSERT INTO users (username, password, real_name, gender, hometown) VALUES (?, ?, ?, ?, ?)", $username, $password, $realName, $gender, $hometown);
 
         $db->close();
+        header("Location: /?firsttime");
+        exit();
     }
 }
 ?>
