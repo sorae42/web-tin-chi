@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO users VALUES ('0', 'qnu', '0', 'Quy Nhon University', 'Nam', 'Quy Nhon, Tinh Binh Dinh', false, DEFAULT);
+INSERT INTO users VALUES ('0', 'qnu', 'qnu', 'Quy Nhon University', 'Nam', 'Quy Nhon, Tinh Binh Dinh', 2, DEFAULT);
 
 -- môn học
 CREATE TABLE IF NOT EXISTS subjects (
@@ -31,8 +31,6 @@ CREATE TABLE IF NOT EXISTS subjects (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO subjects VALUES ('0', 'demo', 'Thử nghiệm', DEFAULT);
-
 -- danhsách sinh viên đã đăng ký
 CREATE TABLE IF NOT EXISTS registered(
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -40,8 +38,6 @@ CREATE TABLE IF NOT EXISTS registered(
     subject_id INT(6) UNSIGNED NOT NULL,
     registered_on DATETIME DEFAULT CURRENT_TIMESTAMP, 
 
-    FOREIGN KEY(users_id) REFERENCES users(id),
+    FOREIGN KEY(users_id) REFERENCES users(id)
     FOREIGN KEY(subject_id) REFERENCES subjects(id)
 );
-
-INSERT INTO registered VALUES ('0', '0', '0', DEFAULT);
