@@ -12,9 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         showMessage("Mật khẩu không trùng khớp!!");
     } else {
         $db = new db();
-        $db->query("UPDATE users SET password = ? WHERE username = ?", $password, $username); 
-
+        $db->query("UPDATE users SET password = ? WHERE username = ?", $password, $username);
         $db->close();
+        showMessage("Đổi mật khẩu thành công!");
     }
 }
 
