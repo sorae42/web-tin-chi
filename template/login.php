@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['loggedIn'] = true;
             $_SESSION['name'] = $username;
             $_SESSION['displayName'] = $account['real_name'];
+            $_SESSION['permission'] = $account['permission'];
             header("Location: /");
             exit();
         }
