@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="content">
         <div class="container">
             <h1>Đăng ký</h1>
-            <p>Tất cả các mục đều bắt buộc!</p>
+            <p style="color:red">Tất cả các mục đều bắt buộc!!!</p>
             <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
                 <div class="form-group">
                     <label for="username">Tên người dùng</label>
