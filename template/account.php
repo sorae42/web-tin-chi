@@ -22,7 +22,7 @@ $permission = match ($_SESSION['permission']) {
     0 => 'Sinh viên',
     1 => 'Giảng viên',
     2 => 'Quản trị viên'
-}
+};
 ?>
 
 <div class="container">
