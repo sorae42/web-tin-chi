@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_regenerate_id();
             $_SESSION['loggedIn'] = true;
             $_SESSION['name'] = $username;
+            $_SESSION['userid'] = $account['id'];
             $_SESSION['displayName'] = $account['real_name'];
             $_SESSION['permission'] = $account['permission'];
             header("Location: /");
