@@ -34,6 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <th><input type="submit" value="+ Thêm" /></th>
             <th><input type="text" name="sid" placeholder="en short name" /></th>
             <th><input type="text" name="subject_name" placeholder="Tên môn học" /></th>
+            <th>Enter để thêm</th>
         </form>
     </tr>
 </table>
+
+<a href="/">Quay lại trang chủ</a>
