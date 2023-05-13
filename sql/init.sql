@@ -26,10 +26,10 @@ CREATE TABLE IF NOT EXISTS subjects (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(24) NOT NULL,
     display_name VARCHAR(64),
-    tutor INT(6) UNSIGNED,
+    tutor_id INT(6) UNSIGNED,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY(tutor) REFERENCES users(id)
+    FOREIGN KEY(tutor_id) REFERENCES users(id)
 );
 
 -- danhsách sinh viên đã đăng ký
