@@ -30,6 +30,8 @@ $permission = match ($_SESSION['permission']) {
         <?= $_SESSION['displayName'] ?>!
     </h2>
 
+    <p>UID: <?= $_SESSION['userid'] ?></p>
+
     <p>Bạn là <?= $permission ?>!</p> 
 
     <a href="classregister.php">
