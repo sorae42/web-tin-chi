@@ -5,7 +5,7 @@ include "../../utils/db.php";
 $db = new db();    
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "utils/message.php";
-    $db->query("INSERT INTO subjects(name, display_name, tutor_id) VALUES (?, ?, ?)", $_POST['sid'], $_POST['subject_name'], $_POST['userid']);
+    $db->query("INSERT INTO subjects(display_name, tutor_id) VALUES (?, ?)", $_POST['subject_name'], $_POST['userid']);
     showMessage("Đã thêm thành công!");
 }
 ?>
