@@ -38,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <tr> 
         <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
             <th><input type="submit" value="+ Thêm" /></th>
-            <th><input type="text" name="sid" placeholder="en short name" /></th>
-            <th><input type="text" name="subject_name" placeholder="Tên môn học" /></th>
+            <th><input type="text" name="sid" placeholder="en short name" required /></th>
+            <th><input type="text" name="subject_name" placeholder="Tên môn học" required /></th>
             <th>Enter để thêm</th>
         </form>
     </tr>
