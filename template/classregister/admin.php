@@ -37,7 +37,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
             <td><input type="submit" value="+ Thêm" /></td>
             <td><input type="text" name="subject_name" placeholder="Tên môn học" required /></td>
-            <td />
+            <td>
+                <select name="userid" id="userid">
+                    <?php 
+                    $db->query("SELECT id, real_name FROM users WHERE permission BETWEEN 1 AND 2")->fetchAll(function($user) {
+                        echo "<option value={$user['id']}>{$user['real_name']}</option>";
+                    });
+                    ?>
+                </select>
+            </td>
             <td>Enter để thêm</td>
         </form>
     </tr>
