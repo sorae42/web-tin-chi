@@ -16,6 +16,7 @@
         <h1><?= ($_SESSION['permission'] == 0 ? "Đăng ký" : "Quản lý") ?> học phần</h1>
         
         <div class="container">
+            <a href="/">← Quay lại trang chủ</a>
             <?php 
                 include "utils/db.php";
                 

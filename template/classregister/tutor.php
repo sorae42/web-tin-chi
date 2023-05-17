@@ -39,4 +39,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </tr>
 </table>
 
-<a href="/">Quay lại trang chủ</a>
