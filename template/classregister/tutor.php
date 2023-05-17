@@ -20,10 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </tr>
     <?php 
     
-    $db->query("SELECT id, name, display_name, created_at FROM subjects WHERE tutor_id = ?", $_SESSION['userid'])->fetchAll(function($subject) {
+    $db->query("SELECT id, display_name, created_at FROM subjects WHERE tutor_id = ?", $_SESSION['userid'])->fetchAll(function($subject) {
         echo "<tr>";
         echo "<td>{$subject['id']}</td>";
-        echo "<td>{$subject['name']}</td>";
         echo "<td>{$subject['display_name']}</td>";
         echo "<td>{$subject['created_at']}</td>";
         echo "</tr>";
@@ -31,10 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
     <tr> 
         <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
-            <th><input type="submit" value="+ Thêm" /></th>
-            <th><input type="text" name="sid" placeholder="en short name" required/></th>
-            <th><input type="text" name="subject_name" placeholder="Tên môn học" required/></th>
-            <th>Enter để thêm</th>
+            <td><input type="submit" value="+ Thêm" /></td>
+            <td><input type="text" name="subject_name" placeholder="Tên môn học" required/></td>
+            <td />
+            <td>Enter để thêm</td>
         </form>
     </tr>
 </table>
