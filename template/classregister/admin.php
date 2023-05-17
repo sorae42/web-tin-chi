@@ -14,21 +14,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <table>
     <tr>
         <th>STT (ID)</th>
-        <th>sid</th>
         <th>Tên môn học</th>
         <th>Giảng viên</th>
         <th>Ngày tạo</th>
     </tr>
     <?php 
     
-    $db->query("SELECT id, name, display_name, tutor_id, created_at FROM subjects")->fetchAll(function($subject) {
+    $db->query("SELECT id, display_name, tutor_id, created_at FROM subjects")->fetchAll(function($subject) {
         
         $subDb = new db(); 
         $account = $subDb->query("SELECT real_name FROM users WHERE id = ?", $subject['tutor_id'])->fetchArray();
 
         echo "<tr>";
         echo "<td>{$subject['id']}</td>";
-        echo "<td>{$subject['name']}</td>";
         echo "<td>{$subject['display_name']}</td>";
         echo "<td>{$account['real_name']}</td>";
         echo "<td>{$subject['created_at']}</td>";
@@ -37,10 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
     <tr> 
         <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
-            <th><input type="submit" value="+ Thêm" /></th>
-            <th><input type="text" name="sid" placeholder="en short name" required /></th>
-            <th><input type="text" name="subject_name" placeholder="Tên môn học" required /></th>
-            <th>Enter để thêm</th>
+            <td><input type="submit" value="+ Thêm" /></td>
+            <td><input type="text" name="subject_name" placeholder="Tên môn học" required /></td>
+            <td />
+            <td>Enter để thêm</td>
         </form>
     </tr>
 </table>

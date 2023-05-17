@@ -24,9 +24,8 @@ INSERT INTO users VALUES ('0', 'qnu', 'qnu', 'Quy Nhon University', 'Nam', 'Quy 
 -- môn học
 CREATE TABLE IF NOT EXISTS subjects (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(24) NOT NULL,
-    display_name VARCHAR(64),
-    tutor_id INT(6) UNSIGNED,
+    display_name VARCHAR(64) NOT NULL,
+    tutor_id INT(6) UNSIGNED NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
 
     FOREIGN KEY(tutor_id) REFERENCES users(id)
