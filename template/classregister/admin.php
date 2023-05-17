@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         echo "<tr>";
         echo "<td>{$subject['id']}</td>";
-        echo "<td>{$subject['display_name']}</td>";
+        echo "<td><a href=\"/classinfo.php?id={$subject['id']}\">{$subject['display_name']}</a></td>";
         echo "<td>{$account['real_name']}</td>";
         echo "<td>{$subject['created_at']}</td>";
         echo "</tr>";
