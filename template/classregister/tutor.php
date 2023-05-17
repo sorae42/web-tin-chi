@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <table>
     <tr>
         <th>STT (ID)</th>
-        <th>sid</th>
         <th>Tên môn học</th>
         <th>Ngày tạo</th>
     </tr>
@@ -32,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
             <td><input type="submit" value="+ Thêm" /></td>
             <td><input type="text" name="subject_name" placeholder="Tên môn học" required/></td>
-            <td />
             <td>Enter để thêm</td>
         </form>
     </tr>
