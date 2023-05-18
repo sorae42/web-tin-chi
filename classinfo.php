@@ -83,6 +83,7 @@ $account = $db->query("SELECT real_name FROM users WHERE id = ?", $subjectInfo['
 $db->query("SELECT users_id, registered_on FROM registered WHERE subject_id = ?", $_GET['id'])->fetchAll(function($user) use ($registeredStudent) {
     $subDb = new db(); 
     $account = $subDb->query("SELECT real_name FROM users WHERE id = ?", $user['users_id'])->fetchArray();
+    // TODO: pass registeredStudent to the outer scope
     //array_push($registeredStudent, $user['users_id']);
 
     echo "<tr>";
