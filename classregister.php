@@ -1,7 +1,5 @@
 <?php 
 session_start();
-$thisPage = $_SERVER['PHP_SELF'];
-
 ?>
 
 <!DOCTYPE html>

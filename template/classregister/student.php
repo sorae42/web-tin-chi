@@ -1,7 +1,4 @@
 <?php
-session_start();
-include "../../utils/db.php";
-
 $db = new db();
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {

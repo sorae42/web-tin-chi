@@ -1,8 +1,6 @@
 <?php 
-session_start(); 
-include "../../utils/db.php";
-
 $db = new db();    
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "utils/message.php";
     $db->query("INSERT INTO subjects(display_name, tutor_id) VALUES (?, ?)", $_POST['subject_name'], $_SESSION['userid']);
