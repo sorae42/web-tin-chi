@@ -72,7 +72,7 @@ $account = $db->query("SELECT real_name FROM users WHERE id = ?", $subjectInfo['
                 </tr>
                 <tr>
                     <?php
-$db->query("SELECT users_id, registered_on FROM registered WHERE subject_id = ?", $_GET['id'])->fetchAll(function($user) {
+$db->query("SELECT users_id, registered_on FROM registered WHERE subject_id = ?", $_GET['id'])->fetchAll(function($user) use ($registeredStudent) {
     $subDb = new db(); 
     $account = $subDb->query("SELECT real_name FROM users WHERE id = ?", $user['users_id'])->fetchArray();
     array_push($registeredStudent, $user['users_id']);
@@ -92,8 +92,8 @@ $db->query("SELECT users_id, registered_on FROM registered WHERE subject_id = ?"
                         <td>
                             <select name="student" id="student">
                                 <?php
-$db->query("SELECT id, real_name FROM users WHERE permission = 0")->fetchAll(function($user) {
-    if (!in_array($user['id'], $registeredStudent))
+$db->query("SELECT id, real_name FROM users WHERE permission = 0")->fetchAll(function($user) use ($registeredStudent) {
+    if (in_array($user['id'], $registeredStudent))
         echo "<option value={$user['id']}>{$user['real_name']}</option>";
 });
                                 ?>
