@@ -19,12 +19,20 @@ $db = new db();
 $registeredStudent = array();
 
 if (isset($_GET['deleteclass'])) {
-    $db->query("DELETE FROM registered WHERE subject_id = ?", $id);
-    $db->query("DELETE FROM subject WHERE id = ?", $id);
+    $db->query("DELETE FROM registered WHERE subject_id = ?", $_GET['id']);
+    $db->query("DELETE FROM subject WHERE id = ?", $_GET['id']);
 
     $db->close();
     header("Location: /classregister.php?deletesuccess");
     exit();
+}
+
+if (isset($_GET['deletestudent'])) {
+    $db->query("DELETE FROM registered WHERE users_id = ?", $_GET['uid']);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $db->query("INSERT INTO registered(users_id, subject_id) VALUES (?, ?)", $_POST['student-id'], $_GET['id']);
 }
 
 $subjectInfo = $db->query("SELECT display_name, tutor_id, created_at FROM subjects WHERE id = ?", $_GET['id'])->fetchArray();
@@ -75,25 +83,25 @@ $account = $db->query("SELECT real_name FROM users WHERE id = ?", $subjectInfo['
 $db->query("SELECT users_id, registered_on FROM registered WHERE subject_id = ?", $_GET['id'])->fetchAll(function($user) use ($registeredStudent) {
     $subDb = new db(); 
     $account = $subDb->query("SELECT real_name FROM users WHERE id = ?", $user['users_id'])->fetchArray();
-    array_push($registeredStudent, $user['users_id']);
+    //array_push($registeredStudent, $user['users_id']);
 
     echo "<tr>";
     echo "<td>{$user['users_id']}</td>";
     echo "<td>{$account['real_name']}</td>";
     echo "<td>{$user['registered_on']}</td>";
-    echo "<td>Xoá</td>";
+    echo "<td><a href=\"?id={$_GET['id']}&uid={$user['users_id']}&deletestudent\">Xoá</a></td>";
     echo "</tr>";
 });
                     ?>
                 </tr>
                 <tr>
-                    <form action="<? $_SERVER['PHP_SELF'] ?>" method="post">
+                    <form action="<?= $_SERVER['PHP_SELF'] . '?id=' . $_GET['id'] ?>" method="post">
                         <td><input type="submit" value="+ Thêm" /></td>
                         <td>
-                            <select name="student" id="student">
+                            <select name="student-id" id="student-id">
                                 <?php
 $db->query("SELECT id, real_name FROM users WHERE permission = 0")->fetchAll(function($user) use ($registeredStudent) {
-    if (in_array($user['id'], $registeredStudent))
+    //if (!in_array($user['id'], $registeredStudent))
         echo "<option value={$user['id']}>{$user['real_name']}</option>";
 });
                                 ?>
