@@ -19,6 +19,12 @@ $thisPage = $_SERVER['PHP_SELF'];
     <div class="content"> 
         <h1><?= ($_SESSION['permission'] == 0 ? "Đăng ký" : "Quản lý") ?> học phần</h1>
         
+        <?php 
+        if (isset($_GET['deletesuccess'])) {
+            include_once "utils/message.php";
+            showMessage("Xoá lớp/môn học thành công!!");
+        }
+        ?>
         <div class="container">
             <a href="/">← Quay lại trang chủ</a>
             <?php 
