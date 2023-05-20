@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION['permission'] == 0) {
+if (!isset($_SESSION['permission']) || $_SESSION['permission'] == 0) {
     echo "Permission denied!!: ";
     echo "Bạn không thể truy cập được trang này.";
     exit();
