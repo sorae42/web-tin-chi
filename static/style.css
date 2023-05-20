@@ -23,6 +23,11 @@ td {
     text-align: center;
 }
 
+form > input[type="submit"], button {
+    margin: 10px 0;
+    padding: 10px 20px;
+}
+
 .content {
     display: flex;
     flex-direction: column;
@@ -42,11 +47,6 @@ td {
 
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-}
-
-form > input[type="submit"], button {
-    margin: 10px 0;
-    padding: 10px 20px;
 }
 
 .form-group {
