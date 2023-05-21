@@ -1,0 +1,9 @@
+Để chạy được Project này, bạn cần phải để các tệp vào chính thư mục `htdocs/` và không phải `htdocs/web-tin-chi-main/`.
+
+Bạn cần phải chạy file `sql/init.sql` trong để tạo Database trước khi sử dụng trang web!!!
+
+-------
+Team: Team Dyan
+Project: Web Tin Chi
+
+https://github.com/team-dyan/web-tin-chi
