@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <th>Tên môn học</th>
         <th>Giảng viên</th>
         <th>Ngày tạo</th>
+        <th />
     </tr>
     <?php 
     
@@ -24,9 +25,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         echo "<tr>";
         echo "<td>{$subject['id']}</td>";
-        echo "<td><a href=\"/classinfo.php?id={$subject['id']}\">{$subject['display_name']}</a></td>";
+        echo "<td>{$subject['display_name']}</td>";
         echo "<td>{$account['real_name']}</td>";
         echo "<td>{$subject['created_at']}</td>";
+        echo "<td><a href=\"/classinfo.php?id={$subject['id']}\">Xem</a></td>";
         echo "</tr>";
     });
     ?>
@@ -44,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </select>
             </td>
             <td>Enter để thêm</td>
+            <td />
         </form>
     </tr>
 </table>
