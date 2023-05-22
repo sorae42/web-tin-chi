@@ -11,7 +11,8 @@
 
 <body>
 
-<?php
+    <div class="content">
+    <?php
 include 'utils/db.php';
 include 'utils/message.php';
 
@@ -49,7 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-    <div class="content">
         <div class="container">
             <h1>Đăng ký</h1>
             <p style="color:red">Tất cả các mục đều bắt buộc!!!</p>
