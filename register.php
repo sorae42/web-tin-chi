@@ -17,27 +17,34 @@ include 'utils/message.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
-    $password = $_POST['password'];
-    $confirm = $_POST['password-confirm'];
+    $db = new db();
 
-    $realName = $_POST['real-name'];
-    $gender = $_POST['gender'];
-    $hometown = $_POST['hometown'];
-
-    if (empty($username) || 
-        empty($password) || 
-        empty($realName) || 
-        empty($gender) || 
-        empty($hometown) || 
-        $password != $confirm) {
+    $usernameValidate = $db->query("SELECT * FROM users WHERE username = ?", $username);
+    if (empty($username)) {
         showMessage("Đơn đăng ký không hợp lệ!");
-    } else {
-        $db = new db();
-        $db->query("INSERT INTO users (username, password, real_name, gender, hometown) VALUES (?, ?, ?, ?, ?)", $username, $password, $realName, $gender, $hometown);
+    }
+    else if ($usernameValidate->numRows() > 0) {
+        showMessage("Tên người dùng này đã được đăng ký!!");
+    }
+    else {
+        $password = $_POST['password'];
+        $confirm = $_POST['password-confirm'];
 
-        $db->close();
-        header("Location: /?firsttime");
-        exit();
+        $realName = $_POST['real-name'];
+        $gender = $_POST['gender'];
+        $hometown = $_POST['hometown'];
+
+        if (empty($password) || 
+            empty($realName) || 
+            empty($gender) || 
+            empty($hometown) || 
+            $password != $confirm) {
+            showMessage("Đơn đăng ký không hợp lệ!");
+        } else {
+            $db->query("INSERT INTO users (username, password, real_name, gender, hometown) VALUES (?, ?, ?, ?, ?)", $username, $password, $realName, $gender, $hometown);
+            header("Location: /?firsttime");
+            exit();
+        }
     }
 }
 ?>
