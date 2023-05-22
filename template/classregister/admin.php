@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <table>
     <tr>
-        <th>STT (ID)</th>
+        <th>Mã học phần (ID)</th>
         <th>Tên môn học</th>
         <th>Giảng viên</th>
         <th>Ngày tạo</th>

@@ -11,7 +11,7 @@ if (empty($_GET['id'])) {
     echo "Parameter needed!!: ";
     echo "Bạn nên truy cập trang này qua trang <a href=\"/classregister.php\">quản lí lớp học.</a>";
     exit();
-} 
+}
 
 include "utils/db.php";
 
@@ -20,7 +20,7 @@ $registeredStudent = array();
 
 if (isset($_GET['deleteclass'])) {
     $db->query("DELETE FROM registered WHERE subject_id = ?", $_GET['id']);
-    $db->query("DELETE FROM subject WHERE id = ?", $_GET['id']);
+    $db->query("DELETE FROM subjects WHERE id = ?", $_GET['id']);
 
     $db->close();
     header("Location: /classregister.php?deletesuccess");
@@ -63,11 +63,11 @@ $account = $db->query("SELECT real_name FROM users WHERE id = ?", $subjectInfo['
         <div class="container">
             <a href="/classregister.php">← Quay về trang trước</a>
 
-            <p>Tên môn học: <?= $subjectInfo['display_name'] ?> (ID: <?= $_GET['id'] ?>)</p>
+            <p>Tên môn học: <?= $subjectInfo['display_name'] ?> (Mã học phần: <?= $_GET['id'] ?>)</p>
             <p>Giảng viên: <?= $account['real_name'] ?> (UID: <?= $subjectInfo['tutor_id'] ?>)</p>
             <p>Ngày tạo: <?= $subjectInfo['created_at'] ?></p>
             <a href="?id=<?= $_GET['id'] ?>&deleteclass">
-                <button type="button">Xoá lớp này</button>
+                <button type="button" class="warning">Xoá lớp này</button>
             </a>
             <p>Danh sách các sinh viên đã đăng ký lớp này</p>
 

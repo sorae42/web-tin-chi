@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
 
 <table>
     <tr>
-        <th>STT (ID)</th>
+        <th>Mã học phần (ID)</th>
         <th>Tên môn học</th>
         <th>Giảng viên</th>
         <th />
