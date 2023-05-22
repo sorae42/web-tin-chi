@@ -2,14 +2,12 @@
 session_start();
 
 if (!isset($_SESSION['permission']) || $_SESSION['permission'] == 0) {
-    echo "Permission denied!!: ";
-    echo "Bạn không thể truy cập được trang này.";
+    echo "Permission denied!! Bạn không thể truy cập được trang này.";
     exit();
 }
 
 if (empty($_GET['id'])) {
-    echo "Parameter needed!!: ";
-    echo "Bạn nên truy cập trang này qua trang <a href=\"/classregister.php\">quản lí lớp học.</a>";
+    echo "Parameter needed!! Bạn nên truy cập trang này qua trang <a href=\"/classregister.php\">quản lí lớp học.</a>";
     exit();
 }
 

@@ -21,11 +21,9 @@ hr {
 button {
     background-color: #FFFFFF;
     border: 1px solid #222222;
-    border-radius: 8px;
+    border-radius: 6px;
     color: #222222;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 13px 23px;
+    padding: 10px 20px;
     text-align: center;
 }
 
