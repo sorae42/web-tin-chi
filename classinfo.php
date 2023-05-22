@@ -52,14 +52,14 @@ $account = $db->query("SELECT real_name FROM users WHERE id = ?", $subjectInfo['
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng ký</title>
+    <title>Chi tiét học phần</title>
 
     <link rel="stylesheet" href="static/style.css">
 </head>
 
 <body>
     <div class="content">
-        <h1>Chi tiết lớp học</h1>
+        <h1>Chi tiết học phần</h1>
         <div class="container">
             <a href="/classregister.php">← Quay về trang trước</a>
 
