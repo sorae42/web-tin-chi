@@ -1,11 +1,12 @@
 <?php
 session_start();
-include "utils/db.php";
 
 if ($_SESSION['permission'] != 2) {
     echo "Permission denied! Bạn không có quyền truy cập trang này!";
     exit();
 }
+
+include "utils/db.php";
 
 ?>
 
