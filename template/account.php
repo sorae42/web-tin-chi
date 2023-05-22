@@ -1,21 +1,28 @@
 <?php
+include 'utils/db.php';
+$db = new db();
+
+$userid = $_SESSION['userid'];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    session_start();
-
-    $username = $_SESSION['name'];
-    $password = $_POST['password'];
-    $confirm = $_POST['password-confirm'];
-    
-    include 'utils/db.php';
-
-    if (empty($password) || $password != $confirm) {
-        showMessage("Mật khẩu không trùng khớp!!");
-    } else {
-        $db = new db();
-        $db->query("UPDATE users SET password = ? WHERE username = ?", $password, $username);
-        $db->close();
-        showMessage("Đổi mật khẩu thành công!");
+    if (isset($_POST['infochange'])) {
+        $db->query("UPDATE users SET real_name = ?, gender = ?, hometown = ? WHERE id = ?", 
+        $_POST['real-name'], $_POST['gender'], $_POST['hometown'], $userid);
+        showMessage("Đổi thông tin thành công!");
     }
+
+    if (isset($_POST['passwordchange'])) {
+        $password = $_POST['password'];
+        $confirm = $_POST['password-confirm'];
+        
+        if (empty($password) || $password != $confirm) {
+            showMessage("Mật khẩu không trùng khớp!!");
+        } else {
+            $db->query("UPDATE users SET password = ? WHERE id = ?", $password, $userid);
+            showMessage("Đổi mật khẩu thành công!");
+        }
+    }
+
 }
 
 $permission = match ($_SESSION['permission']) {
@@ -38,9 +45,35 @@ $permission = match ($_SESSION['permission']) {
         <button>
             <?= ($_SESSION['permission'] == 0 ? "Đăng ký" : "Quản lý") ?> học phần
         </button>
-    </a> 
+    </a>
 
-    <p>Bạn có thể đổi mật khẩu tài khoản tại đây</p>
+    <hr />
+    <p>Thay đổi thông tin cá nhân</p>
+    <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
+        <?php 
+$info = $db->query("SELECT real_name, gender, hometown FROM users WHERE id = ?", $userid)->fetchArray();
+        ?>
+        <div class="form-group">
+            <label for="real-name">Họ và tên</label>
+            <input type="text" name="real-name" id="real-name" value="<?= $info['real_name'] ?>" required />
+        </div>
+        <div class="form-group" style="display:block">
+            <p>Giới tính:</p>
+            <input type="radio" name="gender" id="man" value="Nam" checked required />
+            <label for="man">Nam</label>
+            <input type="radio" name="gender" id="woman" value="Nữ" <?= ($info['gender'] == 'Nữ') ? 'checked' : '' ?> required />
+            <label for="woman">Nữ</label>
+        </div>
+
+        <div class="form-group">
+            <label for="hometown">Quê quán</label>
+            <input type="text" name="hometown" id="hometown" value="<?= $info['hometown'] ?>" required />
+        </div>
+        <input type="submit" id="submit-btn" value="Đổi thông tin" name="infochange"/>
+    </form>
+
+    <hr />
+    <p>Thay đổi mật khẩu</p>
     <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="form-group">
             <label for="password">Mật khẩu</label>
@@ -50,7 +83,7 @@ $permission = match ($_SESSION['permission']) {
             <label for="password-confirm">Nhập lại mật khẩu</label>
             <input type="password" name="password-confirm" id="password-confirm" required />
         </div>
-        <input type="submit" id="submit-btn" value="Đổi mật khẩu" />
+        <input type="submit" id="submit-btn" value="Đổi mật khẩu" name="passwordchange"/>
     </form>
 
     <a href="/logout.php">
