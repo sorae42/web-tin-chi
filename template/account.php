@@ -41,6 +41,12 @@ $permission = match ($_SESSION['permission']) {
 
     <p>Bạn là <?= $permission ?>!</p> 
 
+    <?php if ($_SESSION['permission'] == 2): ?>
+    <a href="users.php">
+        <button>Quản lí người dùng</button>
+    </a>
+    <?php endif; ?>
+
     <a href="classregister.php">
         <button>
             <?= ($_SESSION['permission'] == 0 ? "Đăng ký" : "Quản lý") ?> học phần
@@ -48,7 +54,7 @@ $permission = match ($_SESSION['permission']) {
     </a>
 
     <hr />
-    <p>Thay đổi thông tin cá nhân</p>
+    <h3>Thay đổi thông tin cá nhân</h3>
     <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
         <?php 
 $info = $db->query("SELECT real_name, gender, hometown FROM users WHERE id = ?", $userid)->fetchArray();
@@ -73,7 +79,7 @@ $info = $db->query("SELECT real_name, gender, hometown FROM users WHERE id = ?",
     </form>
 
     <hr />
-    <p>Thay đổi mật khẩu</p>
+    <h3>Thay đổi mật khẩu</h3>
     <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
         <div class="form-group">
             <label for="password">Mật khẩu</label>
