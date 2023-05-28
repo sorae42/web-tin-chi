@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             showMessage("Đơn đăng ký không hợp lệ!");
         } else {
             $db->query("INSERT INTO users (username, password, real_name, gender, hometown) VALUES (?, ?, ?, ?, ?)", $username, $password, $realName, $gender, $hometown);
-            header("Location: /?firsttime");
+            header("Location: index.php?firsttime");
             exit();
         }
     }

@@ -92,7 +92,7 @@ $info = $db->query("SELECT real_name, gender, hometown FROM users WHERE id = ?",
         <input type="submit" id="submit-btn" value="Đổi mật khẩu" name="passwordchange"/>
     </form>
 
-    <a href="/logout.php">
+    <a href="logout.php">
         <button>Đăng xuất tài khoản</button>
     </a>
 

@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['userid'] = $account['id'];
             $_SESSION['displayName'] = $account['real_name'];
             $_SESSION['permission'] = $account['permission'];
-            header("Location: /");
+            header("Location: index.php");
             exit();
         }
 
@@ -42,5 +42,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <input type="submit" id="submit-btn" value="Đăng nhập">
     </form>
-    <p>Chưa có tài khoản? <a href="./register.php">Đăng ký tại đây.</a></p>
+    <p>Chưa có tài khoản? <a href="register.php">Đăng ký tại đây.</a></p>
 </div>

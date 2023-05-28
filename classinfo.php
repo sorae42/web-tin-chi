@@ -59,7 +59,7 @@ $account = $db->query("SELECT real_name FROM users WHERE id = ?", $subjectInfo['
     <div class="content">
         <h1>Chi tiết học phần</h1>
         <div class="container">
-            <a href="/classregister.php">← Quay về trang trước</a>
+            <a href="classregister.php">← Quay về trang trước</a>
 
             <p>Tên môn học: <?= $subjectInfo['display_name'] ?> (Mã học phần: <?= $_GET['id'] ?>)</p>
             <p>Giảng viên: <?= $account['real_name'] ?> (UID: <?= $subjectInfo['tutor_id'] ?>)</p>

@@ -25,7 +25,7 @@ include "utils/db.php";
     <div class="content">
         <h1>Danh sách người dùng</h1>
         <div class="container"> 
-            <a href="/">← Quay lại trang chủ</a>
+            <a href="index.php">← Quay lại trang chủ</a>
         <table>
             <tr>
                 <th>STT (UID)</th>

@@ -24,7 +24,7 @@ session_start();
         }
         ?>
         <div class="container">
-            <a href="/">← Quay lại trang chủ</a>
+            <a href="index.php">← Quay lại trang chủ</a>
             <?php 
                 include "utils/db.php";
                 

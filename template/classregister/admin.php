@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<td>{$subject['display_name']}</td>";
         echo "<td>{$account['real_name']}</td>";
         echo "<td>{$subject['created_at']}</td>";
-        echo "<td><a href=\"/classinfo.php?id={$subject['id']}\">Xem</a></td>";
+        echo "<td><a href=\"classinfo.php?id={$subject['id']}\">Xem</a></td>";
         echo "</tr>";
     });
     ?>
