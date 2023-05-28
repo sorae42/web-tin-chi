@@ -1,4 +1,4 @@
-Để chạy được Project này, bạn cần phải để các tệp vào chính thư mục `htdocs/` và không phải `htdocs/web-tin-chi-main/`. Project có khá là nhiều direct và anchor dẫn đến root của thư mục!!
+~~Để chạy được Project này, bạn cần phải để các tệp vào chính thư mục `htdocs/` và không phải `htdocs/web-tin-chi-main/`. Project có khá là nhiều direct và anchor dẫn đến root của thư mục!!~~ Đã fix path và có thể hoạt động trong bất kì thư mục nào.
 
 Bạn cần phải chạy file `sql/init.sql` trong để tạo Database trước khi sử dụng trang web!!!
 
