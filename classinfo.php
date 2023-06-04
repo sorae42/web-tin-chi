@@ -97,14 +97,15 @@ $db->query("SELECT users_id, registered_on FROM registered WHERE subject_id = ?"
                     <form action="<?= $_SERVER['PHP_SELF'] . '?id=' . $_GET['id'] ?>" method="post">
                         <td><input type="submit" value="+ Thêm" /></td>
                         <td>
-                            <select name="student-id" id="student-id">
+                            <input type="text" name="student-id" list="students" placeholder="Tên sinh viên" required />
+                            <datalist id="students">
                                 <?php
 $db->query("SELECT id, real_name FROM users WHERE permission = 0")->fetchAll(function($user) use ($registeredStudent) {
     //if (!in_array($user['id'], $registeredStudent))
         echo "<option value={$user['id']}>{$user['real_name']}</option>";
 });
                                 ?>
-                            </select>
+                            </datalist>
                         </td>
                         <td />
                         <td />

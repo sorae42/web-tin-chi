@@ -37,15 +37,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <td><input type="submit" value="+ Thêm" /></td>
             <td><input type="text" name="subject_name" placeholder="Tên môn học" required /></td>
             <td>
-                <select name="userid" id="userid">
+                <input type="text" name="userid" list="users" placeholder="Tên giảng viên" required />
+                <datalist id="users">
                     <?php 
                     $db->query("SELECT id, real_name FROM users WHERE permission BETWEEN 1 AND 2")->fetchAll(function($user) {
                         echo "<option value={$user['id']}>{$user['real_name']}</option>";
                     });
                     ?>
-                </select>
+                </datalist>
             </td>
-            <td>Enter để thêm</td>
+            <td></td>
             <td />
         </form>
     </tr>
