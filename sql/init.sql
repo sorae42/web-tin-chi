@@ -1,4 +1,6 @@
 -- this query needs to be executed before doing anything else.
+-- Admin login: 
+-- username: admin, password: qnu
 
 CREATE DATABASE SchoolDatabase;
 
@@ -19,7 +21,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO users VALUES ('0', 'qnu', 'qnu', 'Quy Nhon University', 'Nam', 'Quy Nhon, Tinh Binh Dinh', 2, DEFAULT);
+INSERT INTO users VALUES ('0', 'admin', 'qnu', 'Quy Nhon University', 'Nam', 'Quy Nhon, Tinh Binh Dinh', 2, DEFAULT);
 
 -- môn học
 CREATE TABLE IF NOT EXISTS subjects (
