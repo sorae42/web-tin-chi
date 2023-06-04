@@ -37,7 +37,7 @@ $permission = match ($_SESSION['permission']) {
         <?= $_SESSION['displayName'] ?>!
     </h2>
 
-    <p>Mã sinh viên: <?= $_SESSION['userid'] ?></p>
+    <p>UID: <?= $_SESSION['userid'] ?></p>
 
     <p>Bạn là <?= $permission ?>!</p> 
 
