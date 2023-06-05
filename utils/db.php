@@ -105,14 +105,6 @@ class db {
 		return $this->query->num_rows;
 	}
 
-	public function affectedRows() {
-		return $this->query->affected_rows;
-	}
-
-    public function lastInsertID() {
-    	return $this->connection->insert_id;
-    }
-
     public function error($error) {
         if ($this->show_errors) {
             exit($error);
