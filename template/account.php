@@ -37,9 +37,7 @@ $permission = match ($_SESSION['permission']) {
         <?= $_SESSION['displayName'] ?>!
     </h2>
 
-    <p>User ID: <?= $_SESSION['userid'] ?></p>
-
-    <p>Bạn là <?= $permission ?>!</p> 
+    <p>User ID: <?= $_SESSION['userid'] ?> (<?= $permission ?>)</p>
 
     <?php if ($_SESSION['permission'] == 2): ?>
     <a href="users.php">

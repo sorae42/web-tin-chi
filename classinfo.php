@@ -21,7 +21,7 @@ if (isset($_GET['deleteclass'])) {
     $db->query("DELETE FROM subjects WHERE id = ?", $_GET['id']);
 
     $db->close();
-    header("Location: /classregister.php?deletesuccess");
+    header("Location: classregister.php?deletesuccess");
     exit();
 }
 
