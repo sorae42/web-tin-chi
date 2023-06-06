@@ -40,12 +40,12 @@ class db {
             }
             $this->query->execute();
            	if ($this->query->errno) {
-				$this->error('Unable to process MySQL query (check your params) - ' . $this->query->error);
+				$this->error('Unable to process MySQL query- ' . $this->query->error);
            	}
             $this->query_closed = FALSE;
 			$this->query_count++;
         } else {
-            $this->error('Unable to prepare MySQL statement (check your syntax) - ' . $this->connection->error);
+            $this->error('Unable to prepare MySQL statement - ' . $this->connection->error);
         }
 		return $this;
     }
